@@ -12,7 +12,7 @@ module.exports = function(req, res) {
 	// try to find IP
 	var ipAdd = (req.headers['x-client-ip'] || req.headers['x-forward-for'] || req.headers['x-cluster-client-ip'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress || req.info.remoteAddress);
 	if (ipAdd.substr(0, 7) == "::ffff:") {
-  ip = ip.substr(7)
+  ipAdd = ipAdd.substr(7)
 }
 	
 	// get lang 
