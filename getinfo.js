@@ -10,7 +10,7 @@ module.exports = function(req, res) {
 	os = os.slice(openParenInx + 1, closeParenInx)
 	
 	// try to find IP
-	var ipAdd = (req.headers['x-client-ip'] || req.headers['x-forward-for'] || req.headers['x-cluster-client-ip'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress || req.info.remoteAddress);
+	var ipAdd = req.headers['x-forward-for'];
 	if (ipAdd.substr(0, 7) == "::ffff:") {
   ipAdd = ipAdd.substr(7)
 }
